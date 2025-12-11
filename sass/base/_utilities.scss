@@ -1,0 +1,416 @@
+@use "../abstracts" as *;
+@use "sass:color" as *;
+
+.m-bottom {
+    margin-bottom: 7rem;
+
+    @include respond(maxWidth992) {
+        margin-bottom: 5rem;
+    }
+
+    @include respond(maxWidth768) {
+        margin-bottom: 3rem;
+    }
+}
+
+.m-top {
+    margin-top: 7rem;
+
+    @include respond(maxWidth992) {
+        margin-top: 5rem;
+    }
+
+    @include respond(maxWidth768) {
+        margin-top: 3rem;
+    }
+}
+
+.p-bottom {
+    padding-bottom: 7rem;
+
+    @include respond(maxWidth992) {
+        padding-bottom: 5rem;
+    }
+
+    @include respond(maxWidth768) {
+        padding-bottom: 3rem;
+    }
+}
+
+.p-top {
+    padding-top: 7rem;
+
+    @include respond(maxWidth992) {
+        padding-top: 5rem;
+    }
+
+    @include respond(maxWidth768) {
+        padding-top: 3rem;
+    }
+}
+
+.spaceL {
+    height: 8rem;
+
+    @include respond(maxWidth992) {
+        height: 3rem;
+    }
+
+    @include respond(maxWidth768) {
+        height: 2.5rem;
+    }
+}
+
+.spaceM {
+    height: 7rem;
+
+    @include respond(maxWidth992) {
+        height: 5rem;
+    }
+
+    @include respond(maxWidth768) {
+        height: 3rem;
+    }
+}
+
+.spaceS {
+    height: 2.5rem;
+
+    @include respond(maxWidth992) {
+        height: 2rem;
+    }
+
+    @include respond(maxWidth768) {
+        height: 1.5rem;
+    }
+}
+
+.sectionTitle {
+    margin-bottom: 5rem;
+}
+
+.primaryList {
+    li {
+        position: relative;
+        padding-left: 12.5px;
+
+        &:not(:last-child) {
+            padding-bottom: 1rem;
+        }
+
+        &:before {
+            content: "\f0a4";
+            color: $colorPrimary;
+            position: absolute;
+            top: 6px;
+            left: -15px;
+            font: normal normal normal 16px/1 FontAwesome;
+        }
+    }
+}
+
+
+.colorPicker {
+    position: fixed;
+    top: 20%;
+    z-index: 99;
+    background: scale($colorDarkGray, $lightness: 50%);
+    padding: 0.5rem;
+    transform: translateX(calc(-100% - 5px));
+    transition: $transition;
+
+    &.active {
+        transform: translateX(0);
+    }
+
+    .spin {
+        position: absolute;
+        right: -3.5rem;
+        top: 0;
+        width: 3.5rem;
+        display: grid;
+        place-content: center;
+        color: $colorDarkGray;
+        aspect-ratio: 1 / 1;
+        background: scale($colorDarkGray, $lightness: 50%);
+        cursor: pointer;
+        border-radius: 0 3rem 3rem 0;
+
+        i {
+            animation: spin 4s linear infinite;
+            font-size: $defaultFontSize;
+        }
+    }
+
+    .themeGrid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.4rem;
+    }
+
+    button {
+        display: inline-block;
+        width: 2.5rem;
+        height: 2.5rem;
+        background: var(--themeclr);
+        border-radius: 5px;
+        border: none;
+        box-shadow: none;
+        cursor: pointer;
+
+        &:focus,
+        &:active {
+            border: none;
+            box-shadow: none;
+            outline: none;
+        }
+    }
+}
+
+.borderLine {
+    position: relative;
+
+    &::before {
+        content: "";
+        background-size: contain;
+        width: 128px;
+        height: 9px;
+        position: absolute;
+        left: 0;
+        background-color: $colorPrimary;
+        mask: url(../../images/icons/border-line.png) no-repeat center;
+        mask-size: contain;
+    }
+
+    &.center {
+        &::before {
+            transform: translateX(-50%);
+            left: 50%;
+        }
+    }
+}
+
+.owl-nav {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+
+    .owl-next,
+    .owl-prev {
+        border: none;
+        width: 4rem;
+        aspect-ratio: 1 / 1;
+        background: $colorPrimary;
+
+        span {
+            color: $colorWhite;
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .owl-next {
+        border-radius: 0 50% 50% 0;
+    }
+
+    .owl-prev {
+        border-radius: 50% 0 0 50%;
+    }
+}
+
+
+.innerHeroTab {
+    height: 25rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    &::before {
+        content: "";
+        background: $colorBlack;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        opacity: 0.7;
+        height: 100%;
+    }
+
+    .container {
+        position: relative;
+    }
+}
+
+.expertTouch {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: $colorWhite;
+    z-index: 9;
+
+    ul {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+
+        li {
+            text-align: center;
+            max-width: 33.33%;
+            flex: 0 0 33.33%;
+
+            &:not(:last-child) {
+                border-right: 1px solid rgba($colorSecondary, $alpha: 0.4);
+            }
+
+            a {
+                padding: 1rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 2rem;
+                font-weight: 500;
+                background: var(--exclr);
+                color: $colorWhite;
+
+                @include respond(maxWidth768) {
+                    span{
+                        display: none;
+                    }
+                }
+
+                i {
+                    font-size: 2.4rem;
+                    padding-right: 2rem;
+                    color: $colorWhite;
+                     @include respond(maxWidth768) {
+                    padding-right: 0;
+                    font-size: 1.6rem;
+                }
+                }
+            }
+        }
+    }
+}
+
+.undermaintain {
+    text-align: center;
+
+    h1 {
+        font-weight: 900;
+        font-size: 6rem;
+        text-transform: uppercase;
+        color: rgba($colorSecondary, $alpha: 1);
+        line-height: 1;
+    }
+
+    h2 {
+        font-weight: 900;
+        font-size: 6rem;
+        text-transform: uppercase;
+        color: $colorPrimary;
+        line-height: 1;
+    }
+}
+
+.applyNow {
+    display: flex;
+    gap: 1rem;
+    a {
+        position: relative;
+        padding: 3px 20px;
+        text-transform: uppercase;
+        transition: $transition;
+        font-weight: 600;
+        box-shadow: $boxShadow;
+        border-radius: 40px;
+        text-decoration: none;
+        border: 1px solid $colorWhite;
+        &:first-child {
+            background: $colorPrimary;
+            color: $colorWhite;
+            &:hover{
+                color: $colorSecondary;
+            }
+            &::before {
+                background: $colorWhite;
+            }
+        }
+        &:last-child {
+            background: $colorWhite;
+            color: $colorSecondary;
+            &:hover{
+                color: $colorWhite;
+            }
+            &::before {
+                background: $colorPrimary;
+            }
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            transition: $transition;
+            border-radius: 40px;
+            // z-index: -1;
+        }
+
+        span {
+            position: relative;
+        }
+
+        &:hover {
+
+            &::before {
+                width: 100%;
+            }
+        }
+    }
+}
+.certifyCard{
+    padding: 3rem;
+    box-shadow: $boxShadow;
+    height: 100%;
+        color: rgba($colorSecondary, $alpha: 1);
+        transition: $transition;
+        position: relative;
+        &:hover{
+            transform: translateY(-3px);
+        }
+        &::after{
+            content: "";
+            background: $colorPrimary;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 10rem;
+            height: 3rem;
+            clip-path: polygon(100% 0%, 100% 0, 100% 100%, 0% 100%);
+        }
+        &::before{
+            content: "";
+            background: $colorPrimary;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 10rem;
+            height: 2rem;
+            clip-path: polygon(0% 0%, 100% 0, 0% 100%, 0% 100%);
+        }
+    i{
+        font-size: 2rem;
+        color: rgba($colorSecondary, $alpha: 1);
+    }
+}

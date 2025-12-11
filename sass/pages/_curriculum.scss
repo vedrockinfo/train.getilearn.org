@@ -1,0 +1,139 @@
+@use "../abstracts" as *;
+
+.ourCurriculum {
+    .nav {
+        border-bottom: none;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 3rem;
+        flex-wrap: wrap;
+
+        .nav-link {
+            background: $colorWhite;
+            border: 2px solid $colorSecondary;
+            color: $colorSecondary;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: $transition;
+            font-weight: 500;
+            white-space: nowrap;
+            @include respond (minWidth992){
+                width: 20rem;
+            }
+
+            &:hover {
+                border-color: $colorPrimary;
+                color: $colorWhite;
+                background: $colorPrimary;
+            }
+
+            &.active {
+                border-color: $colorPrimary;
+                color: $colorWhite;
+                background: $colorPrimary;
+            }
+        }
+
+        .tab-content {}
+    }
+}
+
+.program-grid{
+    display: grid;
+    // grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    .program-card{
+        background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    border: 1px solid #f0f0f0;
+        &.animated{
+
+        }
+        .strip__band {
+        position: absolute;
+        right: 0;
+        width: 150px;
+        top: 0;
+        height: 86px;
+
+        svg {
+            position: absolute;
+            inset-block-start: -7px;
+            inset-inline-start: 57px;
+        }
+
+        span {
+            position: absolute;
+            color: #fff;
+            font-size: 14px;
+            inset-inline-end: 0px;
+            font-family: "Poppins", sans-serif;
+            text-align: center;
+            height: 100%;
+            inset-block-start: 0px;
+            text-transform: uppercase;
+            writing-mode: vertical-rl;
+            font-weight: bold;
+            rotate: -45deg;
+            transform: translate(0%, -25.5%);
+            i{
+                rotate: 90deg;
+                font-size: 14px;
+            }
+        }
+    }
+        .program-image {
+    height: 200px;
+    background: linear-gradient(135deg, #007BFF, #28A745);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    i{
+        font-size: 4rem;
+    color: white;
+    z-index: 2;
+    }
+}
+.program-details .content {
+    padding: 2rem;
+}
+.program-meta{
+    color: $colorDarkGray;
+    font-size: 14px;
+    text-align: center;
+    padding: 5px 15px;
+    width: fit-content;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    margin: 1rem auto 3rem;
+}
+.primaryList{
+    li{
+        &::before{
+        color: $colorSecondary;
+    }
+    }
+}
+.headingTertiary{
+    color: $colorSecondary;
+    margin-bottom: 0;
+    text-align: center;
+}
+a{
+    display: block;
+    padding: 10px 25px;
+    width: 100%;
+    text-align: center;
+    background: $colorSecondary;
+    color: $colorWhite;
+}
+    }
+}

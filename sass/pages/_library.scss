@@ -1,0 +1,90 @@
+@use "../abstracts" as *;
+
+.videoLibrary {
+    .row{
+        row-gap: 2rem;
+    }
+    .linkOne{
+        a{
+            @include BtnOne();
+        }
+    }
+    .videoCard {
+        position: relative;
+        overflow: hidden;
+        background: rgba($colorLight, $alpha: 0.5);
+        box-shadow: $boxShadow;
+
+
+        &:hover {
+            .videoHead {
+                background: rgba($colorSecondary, $alpha: 1);
+
+                h3 {
+                    color: rgba($colorWhite, $alpha: 1);
+                }
+            }
+        }
+
+
+        .videoHead {
+            background: rgba($colorWhite, $alpha: 1);
+            padding: 10px 10px;
+            text-align: center;
+            transition: $transition;
+
+            @include respond (minWidth1200) {
+                height: 67px;
+                display: grid;
+                place-content: center;
+            }
+
+            h3 {
+                color: rgba($colorPrimary, $alpha: 1);
+                transition: $transition;
+                font-weight: 600;
+            }
+        }
+    }
+
+    .linkWrapper {
+        text-align: center;
+        margin-top: 3rem;
+
+    }
+
+    .video-box {
+        border: 15px solid rgba($colorPrimary, $alpha: 1);
+
+        video {
+            display: block;
+        }
+    }
+
+    .img-box {
+
+        &::before,
+        &::after {
+            content: "";
+            background-image: url(../../images/sharp-bg.png);
+            position: absolute;
+            width: 15rem;
+            aspect-ratio: 1 / 1;
+        }
+
+        &::before {
+            bottom: 0;
+            left: 0;
+        }
+
+        &::after {
+            top: 0;
+            right: 0;
+        }
+
+        .img-wrapper {
+            z-index: 1;
+            transform: scale(0.89, 0.86);
+        }
+    }
+}

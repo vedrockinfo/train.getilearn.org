@@ -1,0 +1,60 @@
+@use "./variables" as *;
+@use "./responsive" as *;
+
+@mixin BtnOne {
+   background-color: $colorPrimary;
+  color: $colorWhite;
+  padding: 6px 25px;
+  border: 2px solid $colorPrimary;
+  font-weight: 600;
+  display: inline-block;
+  text-transform: uppercase;
+  border-radius: 50px;
+  transition: $transition;
+
+  @include respond (maxWidth768) {
+    padding: 5px 15px;
+    width: auto;
+  }
+
+  &:hover {
+    background: $colorWhite;
+    border-color: $colorPrimary;
+    color: $colorPrimary;
+  }
+}
+
+@mixin BtnTwo {
+  background: $colorWhite;
+  color: $colorPrimary;
+  padding: 6px 25px;
+  border-radius: 50px;
+  border: 2px solid $colorPrimary;
+  text-transform: uppercase;
+  display: inline-block;
+  font-weight: 600;
+  transition: $transition;
+
+  @include respond (maxWidth768) {
+    padding: 5px 15px;
+    width: auto;
+  }
+
+  &:hover {
+    background: $colorPrimary;
+    border-color: $colorPrimary;
+    color: $colorWhite;
+  }
+}
+
+@mixin responsiveColumn{
+  @media screen and (min-width:992px) {
+    width: 470px;
+    margin-left: auto;
+    padding-right: 3rem;
+  }
+  @media screen and (min-width:1200px) {
+    width: 420px;
+  }
+  
+}

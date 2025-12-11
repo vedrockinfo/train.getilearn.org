@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>J &amp; B Gandhi Academy — One Page</title>
+  <meta name="description" content="J & B Gandhi Academy for Transformation in Education — ALfA × Hi PATH" />
+  <style>
+    :root{
+      --accent:#D97A4A; /* warm accent */
+      --muted:#6b6b6b;
+      --bg:#fbfbfb;
+      --maxw:1100px;
+      --gap:24px;
+      --radius:12px;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      color:#1b1b1b;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);line-height:1.5;color:var(--muted)}
+    a{color:var(--accent);text-decoration:none}
+    header{background:#fff;position:sticky;top:0;z-index:60;border-bottom:1px solid #eee}
+    .container{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+    .topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand .logo{width:56px;height:56px;border-radius:8px;background:linear-gradient(135deg,#fff 0,#f3eae0 70%);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent);border:1px solid #fdeadb}
+    .brand h1{font-size:16px;margin:0;line-height:1}
+    .brand p{margin:0;font-size:12px;color:var(--muted)}
+    nav{display:flex;gap:18px;align-items:center}
+    nav a{padding:8px 10px;border-radius:8px;color:#333;font-weight:600}
+    .cta-small{background:var(--accent);color:#fff;padding:8px 12px;border-radius:8px}
+    /* mobile */
+    .nav-toggle{display:none}
+
+    /* HERO */
+    .hero{display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:60vh;align-items:stretch}
+    .hero .side{position:relative;overflow:hidden}
+    .hero .side img{width:100%;height:100%;object-fit:cover;display:block}
+    .hero .left::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,0.65),rgba(255,255,255,0));backdrop-filter:grayscale(60%) brightness(90%);}
+    .hero .left .overlay{position:absolute;inset:24px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+    .hero .right .overlay{position:absolute;inset:24px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+    .hero .divider{position:absolute;left:50%;top:12%;transform:translateX(-50%);height:76%;width:2px;background:#eee;border-radius:6px;display:flex;align-items:center;justify-content:center}
+    .divider .label{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(90deg);font-size:12px;color:var(--muted);background:#fff;padding:6px 10px;border-radius:999px;border:1px solid #f0f0f0}
+    .hero-content{max-width:600px}
+    h1{font-size:26px;color:#111;margin:0 0 12px}
+    p.lead{font-size:16px;color:#333;margin:0 0 18px}
+    .buttons{display:flex;gap:12px;margin-top:8px}
+    .btn{display:inline-block;padding:12px 18px;border-radius:10px;font-weight:700}
+    .btn-primary{background:var(--accent);color:#fff}
+    .btn-ghost{background:transparent;border:1px solid #ddd;color:#333}
+
+    /* Panels */
+    .teasers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+    .panel{background:#fff;padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(20,20,20,0.03)}
+    .panel h3{margin:0 0 8px;color:#111}
+    .panel p{margin:0 0 12px}
+
+    /* strips */
+    .strip{background:#fff;margin-top:28px;padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(20,20,20,0.03);display:flex;align-items:center;justify-content:space-between}
+    .strip .cols{display:flex;gap:14px}
+    .who{display:flex;gap:12px;flex-wrap:wrap}
+    .who .item{background:#fff;padding:12px;border-radius:10px;min-width:160px;box-shadow:0 4px 12px rgba(0,0,0,0.03)}
+
+    /* contact */
+    footer{margin-top:36px;padding:28px 0;color:#666}
+    .footer-grid{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+    .small{font-size:13px;color:#888}
+
+    /* responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;min-height:72vh}
+      .hero .divider{display:none}
+      nav{display:none}
+      .nav-toggle{display:block}
+      .teasers{grid-template-columns:1fr}
+      .footer-grid{flex-direction:column}
+    }
+
+    /* subtle micro-interactions */
+    .panel:hover{transform:translateY(-6px);transition:transform .25s}
+    .btn{transition:transform .15s,box-shadow .15s}
+    .btn:active{transform:translateY(1px)}
+
+    /* utility */
+    .mr-8{margin-right:8px}
+    .muted{color:var(--muted)}
+    .center{text-align:center}
+    form .row{display:flex;gap:12px}
+    input,textarea{padding:10px;border-radius:8px;border:1px solid #e6e6e6;width:100%}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container topbar">
+      <div class="brand">
+        <div class="logo">J&B</div>
+        <div>
+          <h1>J &amp; B Gandhi Academy for Transformation in Education</h1>
+          <p class="small">An initiative by GETI – Global Education &amp; Training Institute</p>
+        </div>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#legacy">Legacy &amp; Vision</a>
+        <a href="#why">Why ALfA × Hi PATH</a>
+        <a href="#programmes">Programmes</a>
+        <a href="#pathways">Professional Pathways</a>
+        <a href="#library">Library &amp; Voices</a>
+        <a href="#join">Join Us</a>
+        <a class="cta-small" href="#join">Join Us</a>
+      </nav>
+
+      <button aria-label="Toggle menu" class="nav-toggle" onclick="toggleMenu()">☰</button>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- HERO -->
+    <section id="home" class="hero" aria-label="Hero">
+      <div class="side left" style="background:#efefef url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=6a4ad2c0b1f3b9c0e4a4f0b1f4b8c3f7') center/cover no-repeat">
+        <div class="overlay hero-content">
+          <h1>19th‑century classrooms, 20th‑century teacher training.</h1>
+          <p class="lead">For decades, schools prepared children for the future using structures from the industrial past. Rows, coverage, exams — and training that repeats "one year, 20 times".</p>
+        </div>
+      </div>
+
+      <div class="divider"><div class="label">Old Road → New Road</div></div>
+
+      <div class="side right" style="background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.05)), url('https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=3f3b0f1d3d7e9c7b0a2fde4f7b4ce4d3') center/cover no-repeat">
+        <div class="overlay hero-content">
+          <h1>21st‑century children &amp; ALfA × Hi PATH.</h1>
+          <p class="lead">The Academy turns you from a content deliverer into a designer of human‑centred learning.</p>
+          <div class="buttons">
+            <a class="btn btn-primary" href="#why">See How We’re Different</a>
+            <a class="btn btn-ghost" href="#pathways">Explore Professional Pathways</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT STRIP -->
+    <section class="strip" aria-labelledby="about-heading">
+      <div>
+        <h3 id="about-heading">J &amp; B Gandhi Academy for Transformation in Education</h3>
+        <p class="small">An initiative of GETI – Global Education &amp; Training Institute. Drawing on over 60 years of experimentation at City Montessori School, the Academy helps educators answer: If education prepares children for life, why does so much still look like an exam factory?</p>
+      </div>
+      <div class="center">
+        <a class="btn btn-primary" href="#why">Learn the Pedagogy</a>
+      </div>
+    </section>
+
+    <!-- TEASERS -->
+    <section style="margin-top:26px">
+      <h2 style="margin:0 0 12px">How this Academy is different</h2>
+      <p class="muted" style="margin:0 0 18px">Everywhere people talk about "new education" — here we change the road you walk on.</p>
+
+      <div class="teasers">
+        <article class="panel" aria-labelledby="t1">
+          <h3 id="t1">From exam factories to life-ready learning</h3>
+          <p>Old education sorts children for marks and ranks. ALfA × Hi PATH starts with wellbeing, purpose and world citizenship, while still building strong foundations.</p>
+          <a href="#why">Learn the new paradigm →</a>
+        </article>
+
+        <article class="panel" aria-labelledby="t2">
+          <h3 id="t2">From workshops that fade to processes you live</h3>
+          <p>Most training is one more workshop. Our programmes are bite-sized, practised in classrooms, and tied to real curriculum tasks.</p>
+          <a href="#programmes">See our programmes →</a>
+        </article>
+
+        <article class="panel" aria-labelledby="t3">
+          <h3 id="t3">From “just a teacher” to designer of learning</h3>
+          <p>The Academy grows trainers, content designers, researchers, school leaders and policy thinkers — grounded in classroom reality.</p>
+          <a href="#pathways">Explore professional pathways →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- WHY ALfA -->
+    <section id="why" style="margin-top:28px">
+      <h2>Why ALfA × Hi PATH?</h2>
+      <p class="muted">A paradigm shift — not just another method. Below are the contrasts that matter.</p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:12px">
+        <div class="panel"><strong>Purpose of Education</strong><p class="small">Then: Sorting for exams &amp; jobs. Now: Life, soul, wellbeing and world citizenship plus strong literacy &amp; numeracy.</p></div>
+        <div class="panel"><strong>Role of Teacher</strong><p class="small">Then: Instructor &amp; controller. Now: Galvaniser who designs processes and lets learners lead.</p></div>
+        <div class="panel"><strong>Role of Learner</strong><p class="small">Then: Passive listener. Now: Active co-creator — pairs, peer-teaching and parent engagement.</p></div>
+        <div class="panel"><strong>Materials &amp; Curriculum</strong><p class="small">Then: Fixed textbooks. Now: Stretchable kits, buddy books and routines children extend.</p></div>
+        <div class="panel"><strong>Assessment &amp; Feedback</strong><p class="small">Then: Term exams &amp; ranks. Now: Ongoing reflect–perfect cycles, portfolios and growth evidence.</p></div>
+        <div class="panel"><strong>Motivation &amp; Climate</strong><p class="small">Then: Rewards &amp; fear. Now: Intrinsic motivation and emotional safety for every child.</p></div>
+      </div>
+
+      <p style="margin-top:12px"><a href="#programmes">Discover the full paradigm shift →</a></p>
+    </section>
+
+    <!-- PROGRAMMES -->
+    <section id="programmes" style="margin-top:28px">
+      <h2>Programmes</h2>
+      <p class="muted">Training that is lived, practised, refined and documented — not a slide deck you forget.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:12px">
+        <div class="panel"><strong>Workshops vs Process Learning</strong><p class="small">Then: one-off theory. Now: short modules with classroom practice and reflection loops.</p></div>
+        <div class="panel"><strong>Hearing vs Living</strong><p class="small">Others talk about active learning. We make you experience ALfA as a learner.</p></div>
+        <div class="panel"><strong>Generic Tips vs Parakh-linked Design</strong><p class="small">We compare real textbooks with buddy books to redesign pages, assessments and prompts.</p></div>
+        <div class="panel"><strong>Homework vs Home Stretch</strong><p class="small">We design child-led home engagements where parents record or observe.</p></div>
+        <div class="panel"><strong>Worksheets vs Creative Prompts</strong><p class="small">We use prompts (and AI as assistant) to create thinking-rich tasks.</p></div>
+        <div class="panel"><strong>Marks vs Portfolios</strong><p class="small">Your outputs: redesigned materials, videos, reflection notes and classroom evidence.</p></div>
+      </div>
+    </section>
+
+    <!-- PATHWAYS -->
+    <section id="pathways" style="margin-top:28px">
+      <h2>Professional Pathways</h2>
+      <p class="muted">Which professional do you want to become? Each card shows the before → after.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px">
+        <div class="panel"><strong>Transformative Teacher</strong><p class="small">Before: delivers textbook. After: designs learner-led, pair-based classes and includes every child.</p></div>
+        <div class="panel"><strong>Trainer / Galvaniser</strong><p class="small">Before: lectures teachers. After: models ALfA with adults and co-designs practice.</p></div>
+        <div class="panel"><strong>Content Designer</strong><p class="small">Before: teacher-centred sheets. After: child-centred prompts, STREAM links and buddy processes.</p></div>
+        <div class="panel"><strong>Researcher</strong><p class="small">Before: distant research. After: embedded, classroom-led studies feeding back into practice.</p></div>
+        <div class="panel"><strong>Principal / Leader</strong><p class="small">Before: timetables &amp; discipline. After: pedagogical leader aligning the school to ALfA.</p></div>
+        <div class="panel"><strong>Supervisor / QA</strong><p class="small">Before: checklist policing. After: supportive observation for teacher growth.</p></div>
+      </div>
+    </section>
+
+    <!-- LIBRARY -->
+    <section id="library" style="margin-top:28px">
+      <h2>Library &amp; Voices</h2>
+      <p class="muted">A living resource hub: guides, short clips, summaries and classroom stories.</p>
+      <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
+        <div class="panel" style="flex:1 1 220px"><strong>Books &amp; Buddy Books</strong><p class="small">Core materials with guides and sample units.</p></div>
+        <div class="panel" style="flex:1 1 220px"><strong>Talks &amp; Town Halls</strong><p class="small">Short reusable clips demonstrating pairs, home stretch and routines.</p></div>
+        <div class="panel" style="flex:1 1 220px"><strong>Research &amp; Papers</strong><p class="small">Summaries with classroom implications and full texts.</p></div>
+      </div>
+    </section>
+
+    <!-- JOIN US -->
+    <section id="join" style="margin-top:28px">
+      <h2>Join Us</h2>
+      <p class="muted">Not for certificate-seekers — for people who want to rethink education and their role.</p>
+
+      <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:12px">
+        <div style="flex:1 1 380px;background:#fff;padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.03)">
+          <h3>How to Begin</h3>
+          <ol>
+            <li>Choose your main pathway</li>
+            <li>Fill a short baseline self-assessment</li>
+            <li>We respond with suggested starting modules</li>
+          </ol>
+          <p><a class="btn btn-primary" href="#contactForm" onclick="scrollToContact()">Start your journey →</a></p>
+        </div>
+
+        <div style="flex:1 1 280px;background:#fff;padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.03)">
+          <h3>Who is this for?</h3>
+          <div class="who">
+            <div class="item">Teachers</div>
+            <div class="item">Trainers</div>
+            <div class="item">Content Designers</div>
+            <div class="item">Researchers</div>
+            <div class="item">Leaders</div>
+            <div class="item">Policymakers</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="contactForm" style="margin-top:18px;background:#fff;padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.03)">
+        <h3>Contact / Join — Quick form</h3>
+        <form id="joinForm" onsubmit="handleSubmit(event)">
+          <div class="row">
+            <input id="name" placeholder="Your name" required />
+            <input id="email" type="email" placeholder="Email" required />
+          </div>
+          <div style="margin-top:12px" class="row">
+            <select id="pathway" required style="padding:10px;border-radius:8px;border:1px solid #e6e6e6">
+              <option value="">Choose a pathway</option>
+              <option>Transformative Teacher</option>
+              <option>Trainer / Galvaniser</option>
+              <option>Content Designer</option>
+              <option>Researcher</option>
+              <option>Leader / Principal</option>
+              <option>Supervisor / QA</option>
+              <option>Policy &amp; Systems</option>
+            </select>
+            <input id="phone" placeholder="Phone / WhatsApp" />
+          </div>
+          <div style="margin-top:12px">
+            <textarea id="message" rows="3" placeholder="Tell us briefly why you want to join (optional)"></textarea>
+          </div>
+          <div style="margin-top:12px;display:flex;gap:10px;align-items:center">
+            <button class="btn btn-primary" type="submit">Submit</button>
+            <small class="muted">Or write to: <a href="mailto:train@getilearn.org">train@getilearn.org</a> • <span>+91 74084 01000</span></small>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container footer-grid">
+        <div>
+          <strong>J &amp; B Gandhi Academy for Transformation in Education</strong>
+          <p class="small">An initiative of GETI – Global Education &amp; Training Institute</p>
+        </div>
+        <div>
+          <p class="small">Website: <a href="https://train.getilearn.org">train.getilearn.org</a></p>
+          <p class="small">Email: <a href="mailto:train@getilearn.org">train@getilearn.org</a></p>
+          <p class="small">Mobile / WhatsApp: +91 74084 01000</p>
+        </div>
+        <div style="max-width:340px">
+          <p class="small">“J &amp; B Gandhi Academy for Transformation in Education is an initiative of GETI – Global Education &amp; Training Institute.”</p>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', function(e){
+        const href = this.getAttribute('href');
+        if(href.length>1){
+          e.preventDefault();
+          document.querySelector(href).scrollIntoView({behavior:'smooth',block:'start'});
+        }
+      })
+    })
+
+    function toggleMenu(){
+      const nav = document.querySelector('nav');
+      if(nav.style.display==='flex') nav.style.display='none';
+      else nav.style.display='flex';
+    }
+
+    function scrollToContact(){
+      document.querySelector('#contactForm').scrollIntoView({behavior:'smooth'});
+    }
+
+    function handleSubmit(e){
+      e.preventDefault();
+      const data = {
+        name:document.getElementById('name').value.trim(),
+        email:document.getElementById('email').value.trim(),
+        pathway:document.getElementById('pathway').value,
+        phone:document.getElementById('phone').value.trim(),
+        msg:document.getElementById('message').value.trim()
+      };
+      // simple validation
+      if(!data.name||!data.email||!data.pathway){
+        alert('Please fill name, email and choose a pathway.');
+        return;
+      }
+      // simulate send — in a real site you'd POST to server
+      console.log('Form submit',data);
+      alert('Thanks ' + data.name + '! We received your enquiry. We will reach out at ' + data.email + '.');
+      document.getElementById('joinForm').reset();
+    }
+  </script>
+</body>
+</html>

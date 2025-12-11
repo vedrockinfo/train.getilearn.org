@@ -1,0 +1,89 @@
+@use "../abstracts" as *;
+.sevenPath{
+    .row{
+        align-items: center;
+    }
+    p{
+        @include respond (minWidth575){
+            font-size: 2.4rem;
+        font-weight: 200;
+        }
+        strong{
+            color: $colorPrimary;
+        }
+    }
+    .imgWrapper{
+        aspect-ratio: 16 / 8;
+        overflow: hidden;
+        img{
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
+.pathTransformation{
+    background: rgba($colorLight, $alpha: 0.08);
+    .row{
+        row-gap: 2rem;
+    }
+    .transformWrapper{
+        height: 100%;
+    padding: 2rem;
+    box-shadow: $boxShadow;
+    background: $colorWhite;
+        .icon{
+            background: $colorLight;
+            width: 6rem;
+    border-radius: 1rem;
+    display: grid;
+    place-content: center;
+    aspect-ratio: 1 / 1;
+            i{
+                color: $colorPrimary;
+                font-size: 2rem;
+            }
+        }
+        .contant{
+            span{
+                display: inline-block;
+                color: $colorWhite;
+                font-weight: 700;
+                text-transform: uppercase;
+                font-size: 12px;
+    padding: 2px 10px;
+    margin-bottom: 1rem;
+            }
+            .bef{
+                p{
+                    opacity: 0.8;
+                }
+                span{
+                    background: $colorPrimary;
+                }
+            }
+            .aft{
+                span{
+                    background: $colorSecondary;
+                }
+            }
+        }
+    }
+}
+.howItWorks{
+    .linkWrapper{
+        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        a{
+            &:first-child{
+                @include BtnOne();
+            }
+            &:last-child{
+                @include BtnTwo();
+            }
+        }
+     }
+}

@@ -1,0 +1,59 @@
+@use "../abstracts" as *;
+.programCard {
+        background: $colorWhite;
+        box-shadow: $boxShadow;
+
+        .imgWrapper {
+            img {
+                aspect-ratio: 16 / 9;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+
+        .contentWrapper {
+            padding: 3rem 2rem 2rem;
+             @include respond (minWidth768){
+                height: 358px;
+            }
+            @include respond (minWidth992){
+                height: 380px;
+            }
+            @include respond (minWidth1200){
+                height: 360px;
+            }
+            @include respond (minWidth1400){
+                height: 269px;
+            }
+
+            .headingQuartery {
+                padding-top: 0;
+                border-top: none;
+                color: $colorSecondary;
+                border-color: rgba($colorSecondary, $alpha: 0.2);
+                text-align: center;
+                font-weight: bold;
+            }
+        }
+
+        .linkWrapper {
+            display: flex;
+
+            a {
+                flex: 0 0 50%;
+                max-width: 50%;
+                display: block;
+                text-align: center;
+                padding: 1rem;
+                color: $colorWhite;
+
+                &:first-child {
+                    background: $colorSecondary;
+                }
+
+                &:last-child {
+                    background: $colorPrimary;
+                }
+            }
+        }
+    }

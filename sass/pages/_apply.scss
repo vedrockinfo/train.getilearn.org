@@ -1,0 +1,183 @@
+@use "../abstracts" as *;
+
+.applyNowHero{
+    background: rgba($colorPrimary, $alpha: 0.08);
+    .headingPrimary{
+        text-transform: uppercase;
+        font-weight: 800;
+        @include respond (minWidth1200){
+            font-size: 6.3rem;
+            span{
+                display: block;
+            }
+        }
+    }
+    .btnWrapper{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        a{
+            &:first-child{
+                @include BtnOne();
+            }
+            &:last-child{
+                @include BtnTwo();
+            }
+        }
+    }
+}
+.trainingProgram{
+    .trainingWrapper{
+        box-shadow: $boxShadow;
+        padding: 2rem;
+        background: $colorWhite;
+        height: 100%;
+        .headingTertiary{
+            margin: 0;
+        }
+        h6{
+            color: $colorWhite;
+            background: rgba($colorPrimary, $alpha: 1);
+            padding: 8px 2rem;
+            display: inline-block;
+            margin: 1rem 0 1rem;
+            font-size: $defaultFontSize;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 40px;
+            transition: $transition;
+        }
+    }
+    .specialisedGrid{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        // grid-auto-rows: 7rem;
+        .specialisedItem{
+            text-align: center;
+            gap: 1rem;
+            transition: $transition;
+            padding: 2rem;
+            &:hover{
+                background: rgba($colorPrimary, $alpha: 1);
+                img{
+                    filter: brightness(0) invert(1);
+                }
+                p{
+                    color: $colorWhite;
+                }
+            }
+            &:nth-child(1), &:nth-child(2){
+                border-bottom: 1px solid rgba($colorBlack, $alpha: 0.1);
+            }
+            &:nth-child(odd){
+                border-right: 1px solid rgba($colorBlack, $alpha: 0.1);
+            }
+            img{
+                width: 4rem;
+            transition: $transition;
+            }
+            p{
+                margin-bottom: 0;
+                font-weight: 600;
+                transition: $transition;
+            }
+        }
+    }
+}
+.startedFrom{
+    background: rgba($colorPrimary, $alpha: 0.08);
+    a.pre{
+        @include BtnOne();
+        &:hover{
+            background: transparent
+        }
+    }a.full{
+        background: transparent;
+        @include BtnTwo();
+    }
+}
+.location{
+    h6{
+        text-align: center;
+    }
+    p{
+        text-align: center;
+        font-weight: 600;
+        @include respond (minWidth992){
+            font-size: 1.8rem;
+        }
+    }
+    .session{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        text-align: center;
+        h6{
+            font-weight: 700;
+            font-size: $defaultFontSize;
+            display: inline-block;
+            color: $colorWhite;
+            background: rgba($colorPrimary, $alpha: 1);
+            padding: 6px 15px;
+        }
+        p{
+            display: inline-block;
+        }
+    }
+}
+.packages{
+    .packageBox{
+       .amount{
+        text-align: center;
+        display: block;
+        font-size: 5rem;
+        font-weight: 800;
+        margin-top: 1.5rem;
+        color: rgba($colorPrimary, $alpha: 1);
+        line-height: 1;
+       }
+       .headingTertiary{
+        color: rgba($colorBlack, $alpha: 1);
+        font-weight: normal;
+       }
+        .head{
+            display: flex;
+            justify-content: space-between;
+            background: $colorSecondary;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            h4{
+                color: $colorWhite;
+                margin-bottom: 0;
+                line-height: 1;
+                font-weight: 700;
+            }
+            span{
+                color: $colorWhite;
+                display: inline-block;
+                line-height: 1;
+                font-weight: 700;
+            }
+        }
+        .foundationGrid{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            @include respond (maxWidth768){
+                grid-template-columns: repeat(1, 1fr);
+            }
+            .foundationItem{
+                box-shadow: $boxShadow;
+                padding: 2rem;
+                &:last-child{
+                grid-column: span 2;
+                @include respond (maxWidth768){
+                    grid-column: span 1;
+                }
+            }
+            }
+        }
+    }
+}

@@ -1,0 +1,313 @@
+@use "../abstracts" as *;
+@use "sass:color";
+
+header {
+    .getiContact {
+        @include respond (maxWidth992) {
+            display: none;
+        }
+    }
+
+    .topHeader {
+        background: $colorPrimary;
+        padding: 0.5rem;
+
+        .thRwo {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+
+            @media screen and (max-width:511px) {
+                justify-content: center;
+                gap: 1.5rem;
+            }
+
+            .contact {
+                display: flex;
+                align-items: flex-end;
+                padding-left: 0;
+                margin-bottom: 0;
+
+                li {
+                    &:first-child {
+                        margin-right: 7.5px;
+                        padding-right: 7.5px;
+                        border-right: 2px solid $colorWhite;
+                    }
+                }
+            }
+        }
+
+
+        .leftSide {
+            .input-group {
+                position: relative;
+                border: 1px solid $colorWhite;
+                border-radius: 200px;
+                padding: 0 15px;
+
+                input {
+                    padding: 5px 0;
+
+                    transition: $transition;
+
+                    &:focus {
+                        padding-right: 25px;
+                    }
+
+                    &::placeholder {
+                        color: $colorWhite;
+                        font-size: 12px;
+                        font-style: oblique;
+                    }
+                }
+
+                input,
+                button {
+                    border: none;
+                    outline: none;
+                    color: $colorWhite;
+                    background: transparent;
+                    box-shadow: none;
+
+                    &:focus,
+                    &:active {
+                        border: none;
+                        outline: none;
+                        box-shadow: none;
+                    }
+                }
+            }
+
+            button {
+                padding: 0;
+
+                i {
+                    color: $colorWhite;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+
+    .mainHeader {
+        padding: 1rem 0;
+        background: $colorWhite;
+
+        &.fixedTop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            box-shadow: $boxShadow;
+            top: -40px;
+            transform: translateY(40px);
+            transition: transform .3s;
+        }
+
+        .mhGrid {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+
+            .logo {
+                width: 200px;
+                @media screen and (max-width:250px) {
+        width: 65vw;
+    }
+            }
+
+            .mainMenu {
+                input[type="checkbox"] {
+                    display: none;
+
+                    &:checked {
+                        &+.togglingBar {
+                            span {
+                                &:nth-child(1) {
+                                    transform: rotate(45deg);
+                                }
+
+                                &:nth-child(2) {
+                                    display: none;
+                                }
+
+                                &:nth-child(3) {
+                                    transform: rotate(-45deg);
+                                }
+                            }
+
+                            &+.nav-menu {
+                                transform: translateX(0);
+                            }
+                        }
+                    }
+                }
+
+                .togglingBar {
+                    cursor: pointer;
+
+                    @include respond (minWidth992) {
+                        display: none;
+                    }
+
+                    span {
+                        display: block;
+                        height: 2px;
+                        border-radius: 5px;
+                        width: 3rem;
+                        background: $colorPrimary;
+                        transition: $transition;
+
+                        &:nth-child(2) {
+                            margin: 8px 0;
+                        }
+                    }
+                }
+
+                .nav-menu {
+                    display: flex;
+                    align-items: flex-end;
+                    margin-bottom: 0;
+                    padding-left: 0;
+
+                    @include respond (maxWidth992) {
+                        position: fixed;
+                        z-index: 999;
+                        text-align: left;
+                        left: 0;
+                        top: 0;
+                        display: block;
+                        background: $colorWhite;
+                        height: 100%;
+                        width: 30rem;
+                        transform: translateX(-100%);
+                        transition: $transition;
+
+                        a {
+                            padding: 0.6rem 1rem;
+                            display: block;
+                        }
+                    }
+
+                    .nav-list {
+                        .mobileLogo{
+                            margin-top: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+                            @include respond (minWidth992){
+                                display: none;
+                            }
+                        }
+                        &.dropDown {
+                            position: relative;
+
+                            &:hover {
+                                &::after {
+                                    color: $colorPrimary;
+                                }
+                            }
+
+                            &::after {
+                                content: "+";
+                                display: inline-block;
+                                transition: $transition;
+                                margin-left: -5px;
+
+                                @include respond (maxWidth992) {
+                                    position: absolute;
+                                    top: 10px;
+                                    right: 20px;
+                                }
+                            }
+
+                            &:hover .subMenu {
+                                @include respond (minWidth992) {
+                                    transform: scaleY(1);
+                                }
+
+                                @include respond (maxWidth992) {
+                                    height: auto;
+                                    padding-top: 5px;
+                                    padding-bottom: 5px;
+                                    overflow: auto;
+                                }
+                            }
+                        }
+
+                        &.dropDown .subMenu {
+                            background: #fff;
+                            z-index: 1;
+                            padding: 5px 10px 5px;
+                            transition: $transition;
+
+                            @include respond (maxWidth992) {
+                                height: 0;
+                                padding-top: 0;
+                                padding-bottom: 0;
+                                overflow: hidden;
+                            }
+
+                            @include respond (minWidth992) {
+                                position: absolute;
+                                width: 200px;
+                                box-shadow: $boxShadow;
+                                transform: scaleY(0);
+                                top: 22px;
+                                left: 0px;
+                            }
+                        }
+
+                        &.dropDown .subMenu li:not(:last-child) {
+                            border-bottom: 1px solid #ccc;
+                        }
+
+                        &.dropDown .subMenu li a {
+                            padding: 10px 10px !important;
+                            display: block;
+                        }
+
+                        &.dropDown .subMenu:before {
+                            content: "";
+                            background: #f58634;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 4px;
+                        }
+
+                        a {
+                            color: $colorText;
+                            font-weight: 500;
+                            transition: $transition;
+
+                            @include respond (minWidth1200) {
+                                padding: 4px 10px;
+                            }
+
+
+                            @media screen and (min-width:992.1px) and (max-width:1199.9px) {
+                                padding: 4px 7px;
+                            }
+
+                            &:hover {
+                                color: $colorPrimary
+                            }
+                        }
+                    }
+                }
+            }
+
+            .linkWrapper {
+                a {
+                    @include BtnOne();
+                }
+            }
+        }
+    }
+
+}
