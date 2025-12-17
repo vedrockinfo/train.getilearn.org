@@ -1,0 +1,36 @@
+@use "../abstracts" as *;
+
+.sitemap{
+    ul{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        padding: 0;
+        margin: 0;
+        @include respond (maxWidth768){
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @include respond (maxWidth575){
+            grid-template-columns: auto;
+        }
+        li{
+            a{
+                color: $colorSecondary;
+                font-size: 1.6rem;
+                font-weight: 600;
+                line-height: 2.4rem;
+                transition: $transition;
+                text-transform: uppercase;
+                display: block;
+    padding: 12px 20px;
+    text-align: center;
+    border: 1px solid;
+
+                &:hover{
+                    color: $colorWhite;
+                    background: $colorSecondary;
+                }
+            }
+        }
+    }
+}

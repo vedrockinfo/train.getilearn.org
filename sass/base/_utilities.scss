@@ -330,28 +330,32 @@
         text-transform: uppercase;
         transition: $transition;
         font-weight: 600;
-        box-shadow: $boxShadow;
         border-radius: 40px;
         text-decoration: none;
         border: 1px solid $colorWhite;
-        &:first-child {
-            background: $colorPrimary;
+        &:first-child{
+            border: none;
+            color: $colorWhite;
+        }
+        &:nth-child(2){
             color: $colorWhite;
             &:hover{
-                color: $colorSecondary;
-            }
-            &::before {
-                background: $colorWhite;
+                color: $colorPrimary;
+                &::before{
+                    width: 100%;
+                    background: $colorWhite;
+                }
             }
         }
-        &:last-child {
+        &:last-child{
             background: $colorWhite;
-            color: $colorSecondary;
+            color: $colorPrimary;
             &:hover{
                 color: $colorWhite;
-            }
-            &::before {
-                background: $colorPrimary;
+                &::before{
+                    width: 100%;
+                    background: $colorPrimary;
+                }
             }
         }
 
@@ -369,13 +373,6 @@
 
         span {
             position: relative;
-        }
-
-        &:hover {
-
-            &::before {
-                width: 100%;
-            }
         }
     }
 }

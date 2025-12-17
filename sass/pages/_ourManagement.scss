@@ -1,21 +1,30 @@
 @use "../abstracts" as *;
 
 .ourSeniors {
+    button.viewProfile {
+        margin-top: 1.5rem;
+        @include BtnOne();
+    }
+
     .row {
         padding: 4rem 2rem;
         box-shadow: $boxShadowTwo;
         border-radius: 1.6rem;
+
         @include respond (maxWidth992) {
             row-gap: 3rem;
         }
+
         .imgWrapper {
             height: 100%;
+
             img {
                 height: 100%;
                 width: 100%;
                 object-fit: cover;
             }
         }
+
         &:nth-child(even) {
             margin: 5rem 0;
 
@@ -32,8 +41,82 @@
             }
         }
     }
+
+    .modal-body {
+        @include respond (minWidth768) {
+            padding: 2rem;
+        }
+    }
+
+    .btn-close {
+        display: block;
+        margin-left: auto;
+        margin-right: 1rem;
+        margin-top: 1rem;
+        font-size: 2.4rem;
+
+        @include respond (minWidth768) {
+            display: none;
+        }
+    }
+
+    .profilePic {
+        @include respond (minWidth768) {
+            aspect-ratio: 1 / 1;
+            width: 200px;
+            border-radius: 20px;
+            overflow: hidden;
+            float: left;
+            margin: 0 20px 10px 0;
+            border: 2px solid $colorPrimary;
+        }
+
+        @include respond (maxWidth768) {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            width: 20rem;
+            margin: 0 auto 2rem;
+
+            &::before {
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                z-index: -1;
+                content: "";
+                position: absolute;
+                border-radius: 50%;
+                background-color: $colorPrimary;
+            }
+
+            &::after {
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                z-index: -2;
+                content: "";
+                position: absolute;
+                border-radius: 65% 35% 70% 30% / 64% 31% 69% 36%;
+                background-color: $colorSecondary;
+            }
+
+            img {
+                border-radius: 30% 70% 70% 30%/30% 30% 70% 70%;
+                display: inline-block;
+            }
+        }
+    }
+
+    .modal-dialog {
+        @include respond (minWidth992) {
+            max-width: 80%;
+            height: 40rem;
+        }
+    }
 }
 
-.ourFaculties{
+.ourFaculties {
     background: rgba($colorLight, $alpha: 0.08);
 }
